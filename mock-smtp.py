@@ -34,7 +34,7 @@ class MockSMTPServer(smtpd.SMTPServer):
 
         file = '%s.eml' % datetime.datetime.fromtimestamp(today).strftime('%Y-%m-%dT%T.%f')
 
-        mail = open(file, "w")
+        mail = open(file, "w", 0o777)
         mail.write('Return-Path: <%s>\n' % mailfrom)
         mail.write('Received: from [%s] by %s\n'
                    ' (Mock SMTP -- https://github.com/flaviovs/mock-smtp) with SMTP\n'
